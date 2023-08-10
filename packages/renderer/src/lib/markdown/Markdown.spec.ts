@@ -48,15 +48,17 @@ describe('Custom button', () => {
     await waitRender({ markdown: ':button[Name of the button]' });
     const markdownContent = screen.getByRole('region', { name: 'markdown-content' });
     expect(markdownContent).toBeInTheDocument();
-    expect(markdownContent).toContainHTML('<a class="pf-c-button pf-m-primary" >Name of the button</a>');
+    expect(markdownContent).toContainHTML('Name of the button');
+    expect(markdownContent).toContainHTML('bg-purple-500');
   });
 
   test('Expect with all attributes', async () => {
     await waitRender({ markdown: ':button[Name of the button]{href=http://my-link title="tooltip text"}' });
     const markdownContent = screen.getByRole('region', { name: 'markdown-content' });
     expect(markdownContent).toBeInTheDocument();
-    expect(markdownContent).toContainHTML(
-      '<a class="pf-c-button pf-m-primary" href="http://my-link" title="tooltip text" >Name of the button</a>',
-    );
+    expect(markdownContent).toContainHTML('Name of the button');
+    expect(markdownContent).toContainHTML('href="http://my-link"');
+    expect(markdownContent).toContainHTML('title="tooltip text"');
+    expect(markdownContent).toContainHTML('bg-purple-500');
   });
 });
