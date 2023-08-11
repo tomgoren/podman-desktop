@@ -49,7 +49,9 @@ describe('Custom button', () => {
     const markdownContent = screen.getByRole('region', { name: 'markdown-content' });
     expect(markdownContent).toBeInTheDocument();
     expect(markdownContent).toContainHTML('Name of the button');
-    expect(markdownContent).toContainHTML('bg-purple-500');
+    expect(markdownContent).toContainHTML(
+      '<button class="px-4 py-[6px] rounded-[4px] text-white text-[13px] whitespace-nowrap bg-purple-500',
+    );
   });
 
   test('Expect with all attributes', async () => {
@@ -59,6 +61,8 @@ describe('Custom button', () => {
     expect(markdownContent).toContainHTML('Name of the button');
     expect(markdownContent).toContainHTML('href="http://my-link"');
     expect(markdownContent).toContainHTML('title="tooltip text"');
-    expect(markdownContent).toContainHTML('bg-purple-500');
+    expect(markdownContent).toContainHTML(
+      '<button class="px-4 py-[6px] rounded-[4px] text-white text-[13px] whitespace-nowrap bg-purple-500',
+    );
   });
 });
